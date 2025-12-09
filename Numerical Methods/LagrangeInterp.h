@@ -1,17 +1,19 @@
+#pragma once
+
 #include <iostream>
 #include <vector>
 #include <cmath>
 #include <stdexcept>
 #include <fstream>
 
-// Para conseguir usar caract√©res Unicode nos prints
+// Para conseguir usar caractÈres Unicode nos prints
 #ifdef _WIN32
 #include <windows.h>
 #endif
 
 /*
-    Essa √© a implementa√ß√£o b√°sica de Lagrange Interp.
-    por√©m a checagem do vetor x √© de O(n^2), ent√£o n√£o √© a fun√ß√£o ideal para plots.
+    Essa È a implementaÁ„o b·sica de Lagrange Interp.
+    porÈm a checagem do vetor x È de O(n^2), ent„o n„o È a funÁ„o ideal para plots.
 */
 template <typename T>
 double LagrangeInterp(const std::vector<T>& x, const std::vector<T>& y, const double& a) {
@@ -23,8 +25,8 @@ double LagrangeInterp(const std::vector<T>& x, const std::vector<T>& y, const do
     }
 
     size_t n = x.size();
-    /* 
-        checar se tem divis√£o por zero, checagem b√°sica por√©m suficiente.
+    /*
+        checar se tem divis„o por zero, checagem b·sica porÈm suficiente.
     */
     for (size_t i = 0; i < n; ++i) {
         for (size_t k = i + 1; k < n; ++k) {
@@ -50,7 +52,7 @@ double LagrangeInterp(const std::vector<T>& x, const std::vector<T>& y, const do
 
                 // L_ij(x) = (x - x_i) / (x_j - x_i)
                 double numerator = a - xi;
-                double denominator = xj - xi; 
+                double denominator = xj - xi;
                 term *= (numerator / denominator);
             }
         }
@@ -69,7 +71,7 @@ class LagrageInterpBari {
 private:
     std::vector<T> x_nodes;
     std::vector<T> y_nodes;
-    std::vector<double> weights; 
+    std::vector<double> weights;
 
 public:
     LagrageInterpBari(const std::vector<T>& x, const std::vector<T>& y)
@@ -99,7 +101,7 @@ public:
 
         for (size_t j = 0; j < x_nodes.size(); ++j) {
             /*
-                Usando \varepsilon pequeno para evitar divis√£o por zero.
+                Usando \varepsilon pequeno para evitar divis„o por zero.
             */
             if (std::abs(a - x_nodes[j]) < 1e-9) {
                 return y_nodes[j];
@@ -113,25 +115,3 @@ public:
     }
 };
 
-int main()
-{
-    /*
-        para printar caract√©res unicode.
-    */
-    #ifdef _WIN32
-        SetConsoleOutputCP(CP_UTF8);
-    #endif
-
-    std::vector<double> xVal = { 1.0, 2.0, 3.0 };
-    std::vector<double> yVal = { 2.0, 1.0, 2.0 };
-    double a = 1.5;
-
-
-    double result = LagrangeInterp(xVal, yVal, a);
-    LagrageInterpBari<double> interpol(xVal, yVal);
-    double resultBari = interpol.evaluate(a);
-
-
-    std::cout <<"Resultados 1¬™ func:\n" << result << "\n\nResultados 2¬™ func:\n" << resultBari << "\n";
-    return 0;
-}
