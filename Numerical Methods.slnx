@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Numerical Methods/Numerical Methods.vcxproj" />
+  <Project Path="Numerical Methods/Numerical Methods.vcxproj" Id="3237ea52-0896-473f-863d-a0106be77ab3" />
 </Solution>

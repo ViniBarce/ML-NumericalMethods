@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="docs">
+      <UniqueIdentifier>{0f4d6c1d-a6f4-4e60-a6cc-b6d722119a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="docs\MachineLearning">
+      <UniqueIdentifier>{9798af9e-1102-4283-aebd-d486fc3921cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="docs\NumericalMethods">
+      <UniqueIdentifier>{ee9f5fe4-ac2f-4324-a39a-24f3f803222f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -26,5 +35,8 @@
     <ClInclude Include="LinearRegression.h">
       <Filter>Arquivos de Origem</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LagrangeInterp.md" />
   </ItemGroup>
 </Project>

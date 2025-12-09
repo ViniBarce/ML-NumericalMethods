@@ -133,6 +133,9 @@
     <ClInclude Include="LagrangeInterp.h" />
     <ClInclude Include="LinearRegression.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="LagrangeInterp.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
