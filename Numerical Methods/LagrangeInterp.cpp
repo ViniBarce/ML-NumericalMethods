@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <fstream>
 
-// 1. Para conseguir usar caractéres Unicode nos prints
+// Para conseguir usar caractéres Unicode nos prints
 #ifdef _WIN32
 #include <windows.h>
 #endif
