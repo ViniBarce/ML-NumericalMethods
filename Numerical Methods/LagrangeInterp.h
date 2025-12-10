@@ -5,11 +5,8 @@
 #include <cmath>
 #include <stdexcept>
 #include <fstream>
-
-// Para conseguir usar caractéres Unicode nos prints
-#ifdef _WIN32
+#include <immintrin.h>
 #include <windows.h>
-#endif
 
 /*
     Essa é a implementação básica de Lagrange Interp.
@@ -115,3 +112,26 @@ public:
     }
 };
 
+
+/*
+Melhor dos dois mundos, Baricentro porém tentando otimizar o máximo possível a função,
+na documentação .md explico como isso pode ter 100x a performance do Lagrange normal.
+*/
+
+inline double hmul_256(__m256d v) {
+    // Permuta e multiplica: [0, 1, 2, 3] -> [0*2, 1*3, X, X]
+    __m256d v_perm = _mm256_permute4x64_pd(v, 0b10110001);
+    __m256d v_mul1 = _mm256_mul_pd(v, v_perm);
+
+    // Extrai a parte baixa e alta para __m128d e multiplica
+    __m128d v_low = _mm256_castpd256_pd128(v_mul1);
+    __m128d v_high = _mm256_extractf128_pd(v_mul1, 1);
+    __m128d v_res = _mm_mul_pd(v_low, v_high);
+
+    // Extrai o escalar final
+    return _mm_cvtsd_f64(v_res);
+}
+
+double LagrangeInterpOptm(const std::vector<double>& x, const std::vector<double>& y, double a) noexcept;
+
+void runLagrange();

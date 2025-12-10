@@ -27,6 +27,12 @@
     <ClCompile Include="main.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="LagrangeInterp.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="SVM.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LagrangeInterp.h">
@@ -35,8 +41,13 @@
     <ClInclude Include="LinearRegression.h">
       <Filter>Arquivos de Origem</Filter>
     </ClInclude>
+    <ClInclude Include="SVM.h">
+      <Filter>Arquivos de Origem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="LagrangeInterp.md" />
+    <None Include="LagrangeInterp.md">
+      <Filter>docs\NumericalMethods</Filter>
+    </None>
   </ItemGroup>
 </Project>

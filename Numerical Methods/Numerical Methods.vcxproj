@@ -127,11 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LagrangeInterp.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SVM.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LagrangeInterp.h" />
     <ClInclude Include="LinearRegression.h" />
+    <ClInclude Include="SVM.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LagrangeInterp.md" />
